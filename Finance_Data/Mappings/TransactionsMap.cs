@@ -27,18 +27,18 @@ public class TransactionsMap : IEntityTypeConfiguration<Transactions>
 
         builder.Property(x => x.date)
             .IsRequired()
-            .HasColumnType("timestamp");
+            .HasColumnType("timestamp with time zone");
 
         builder.Property(x => x.description)
             .IsRequired()
             .HasColumnType("varchar(255)");
 
         builder.Property(x => x.created_at)
-            .HasColumnType("timestamp")
+            .HasColumnType("timestamp with time zone")
             .IsRequired();
 
         builder.Property(x => x.update_at)
-            .HasColumnType("timestamp")
+            .HasColumnType("timestamp with time zone")
             .IsRequired(false);
     }
 }

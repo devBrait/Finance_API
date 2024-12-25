@@ -1,4 +1,5 @@
-﻿namespace Finance_Core.Enums;
+﻿namespace Finance_Shared.Enums;
+
 public enum CategoryEnum
 {
     Income = 0,

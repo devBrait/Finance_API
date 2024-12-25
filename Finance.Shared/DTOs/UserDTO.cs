@@ -1,5 +1,5 @@
-﻿namespace Finance_Core.Entities;
-public class Users
+﻿namespace Finance_Shared.DTOs;
+public class UserDTO
 {
     public int id { get; set; }
     public string name { get; set; }

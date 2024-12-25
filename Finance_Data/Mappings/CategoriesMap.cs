@@ -25,6 +25,6 @@ public class CategoriesMap : IEntityTypeConfiguration<Categories>
 
         builder.Property(x => x.created_at)
             .IsRequired()
-            .HasColumnType("timestamp");
+            .HasColumnType("timestamp with time zone");
     }
 }

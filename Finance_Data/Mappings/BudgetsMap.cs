@@ -27,14 +27,14 @@ public class BudgetsMap : IEntityTypeConfiguration<Budgets>
 
         builder.Property(x => x.start_date)
             .IsRequired()
-            .HasColumnType("timestamp");
+            .HasColumnType("timestamp with time zone");
 
         builder.Property(x => x.end_date)
             .IsRequired()
-            .HasColumnType("timestamp");
+            .HasColumnType("timestamp with time zone");
 
         builder.Property(x => x.created_at)
-            .HasColumnType("timestamp")
+            .HasColumnType("timestamp with time zone")
             .IsRequired();
     }
 }

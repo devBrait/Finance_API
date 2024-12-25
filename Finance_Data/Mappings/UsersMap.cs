@@ -28,11 +28,11 @@ public class UsersMap : IEntityTypeConfiguration<Users>
 
         builder.Property(x => x.created_at)
             .HasColumnName("CreatedAt")
-            .HasColumnType("timestamp");
+            .HasColumnType("timestamp with time zone");
 
         builder.Property(x => x.updated_at)
             .HasColumnName("UpdatedAt")
             .IsRequired(false)
-            .HasColumnType("timestamp");
+            .HasColumnType("timestamp with time zone");
     }
 }
