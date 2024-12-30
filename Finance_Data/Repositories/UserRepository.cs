@@ -12,6 +12,10 @@ public class UserRepository(DataContext context) : Repository<Users>(context), I
         var user = await _context.Users.Where(x => x.email == email)
             .FirstOrDefaultAsync();
 
+        if (user == null)
+        {
+            return null;
+        }
 
         var userDTO = new UserDTO
         {
