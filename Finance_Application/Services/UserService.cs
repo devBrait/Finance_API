@@ -1,4 +1,5 @@
-﻿using Finance_Core.DTOs;
+﻿using Finance_Application.Validators;
+using Finance_Core.DTOs;
 using Finance_Core.Entities;
 using Finance_Core.Interfaces;
 
@@ -7,16 +8,25 @@ public class UserService
 {
     private readonly IUserRepository _userRepository;
     private readonly SecurityService _securityService;
+    private readonly UserDTOValidator _userDTOValidator;
 
-    public UserService(IUserRepository userRepository, SecurityService securityService)
+    public UserService(IUserRepository userRepository, SecurityService securityService, UserDTOValidator userDTOValidator)
     {
         _userRepository = userRepository;
         _securityService = securityService;
+        _userDTOValidator = userDTOValidator;
     }
 
     public async Task<UserDTO> CreateAsync(UserDTO user)
     {
-        var userExists = _userRepository.GetByEmailAsync(user.email);
+        var result = await _userDTOValidator.ValidateAsync(user);
+
+        if (!result.IsValid)
+        {
+            throw new Exception(string.Join("\n",result.Errors.Select(e => e.ErrorMessage)));
+        }
+
+        var userExists = await _userRepository.GetByEmailAsync(user.email);
 
         if (userExists != null)
         {
@@ -35,6 +45,23 @@ public class UserService
         
         _userRepository.Add(newUser);
         await _userRepository.SaveAsync();
+
+        return user;
+    }
+
+    public async Task<UserDTO> LoginAsync(string email, string password)
+    {
+        var user = await _userRepository.GetByEmailAsync(email);
+
+        if (user == null)
+        {
+            throw new Exception("An account with this email address not exists. Please use a different email.");
+        }
+
+        if (!_securityService.VerifyPassword(password, user.password))
+        {
+            throw new Exception("Invalid password.");
+        }
 
         return user;
     }

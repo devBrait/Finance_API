@@ -14,17 +14,17 @@ public class UserController: ControllerBase
         _userService = userService;
     }
 
-    [HttpPost]
+    [HttpPost("create")]
     public async Task<IActionResult> CreateAsync([FromBody]UserDTO user)
     {
-        try
-        {
-            var newUser = await _userService.CreateAsync(user);
-            return StatusCode(201, newUser);
-        }
-        catch (Exception ex)
-        {
-            return BadRequest(ex.Message);
-        }
+        var newUser = await _userService.CreateAsync(user);
+        return StatusCode(201, newUser);
+    }
+
+    [HttpPost("login")]
+    public async Task<IActionResult> LoginAsync([FromBody]LoginRequestDTO requestDTO)
+    {
+        var user = await _userService.LoginAsync(requestDTO.email, requestDTO.password);
+        return Ok(user);
     }
 }
