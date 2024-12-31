@@ -23,7 +23,7 @@ public class UserService
 
         if (!result.IsValid)
         {
-            throw new Exception(string.Join("\n",result.Errors.Select(e => e.ErrorMessage)));
+            throw new Exception(string.Join(" ",result.Errors.Select(e => e.ErrorMessage)));
         }
 
         var userExists = await _userRepository.GetByEmailAsync(user.email);
