@@ -5,11 +5,11 @@ using Finance_Core.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace Finance_Data.Repositories;
-public class UserRepository(DataContext context) : Repository<Users>(context), IUserRepository
+public class UserRepository(DataContext context) : Repository<User>(context), IUserRepository
 {
     public async Task<UserDTO> GetByEmailAsync(string email)
     {
-        var user = await _context.Users.Where(x => x.email == email)
+        var user = await _context.User.Where(x => x.email == email)
             .FirstOrDefaultAsync();
 
         if (user is null)

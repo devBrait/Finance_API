@@ -4,11 +4,11 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Finance_Data.Mappings;
 
-public class TransactionsMap : IEntityTypeConfiguration<Transactions>
+public class TransactionMap : IEntityTypeConfiguration<Transaction>
 {
-    public void Configure(EntityTypeBuilder<Transactions> builder)
+    public void Configure(EntityTypeBuilder<Transaction> builder)
     {
-        builder.ToTable("Transactions");
+        builder.ToTable("Transaction");
         builder.HasKey(x => x.id);
         builder.Property(x => x.id)
             .ValueGeneratedOnAdd();

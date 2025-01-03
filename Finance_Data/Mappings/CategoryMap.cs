@@ -4,12 +4,12 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Finance_Data.Mappings;
 
-public class CategoriesMap : IEntityTypeConfiguration<Categories>
+public class CategoryMap : IEntityTypeConfiguration<Category>
 {
-    public void Configure(EntityTypeBuilder<Categories> builder)
+    public void Configure(EntityTypeBuilder<Category> builder)
     {
 
-        builder.ToTable("Categories");
+        builder.ToTable("Category");
         builder.HasKey(x => x.id);
         builder.Property(x => x.id)
             .ValueGeneratedOnAdd();

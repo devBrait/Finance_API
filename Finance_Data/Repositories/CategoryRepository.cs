@@ -6,11 +6,11 @@ using Finance_Data.Context;
 using Microsoft.EntityFrameworkCore;
 
 namespace Finance_Data.Repositories;
-public class CategoryRepository(DataContext context) : Repository<Categories>(context), ICategoryRepository
+public class CategoryRepository(DataContext context) : Repository<Category>(context), ICategoryRepository
 {
     public async Task<IEnumerable<CategoryDTO>> GetAllAsync()
     {
-        return await _context.Categories
+        return await _context.Category
             .Select(x => new CategoryDTO
             {
                 id = x.id,
@@ -23,7 +23,7 @@ public class CategoryRepository(DataContext context) : Repository<Categories>(co
 
     public async Task<CategoryDTO> GetByIdAsync(int id)
     {
-        var category = await _context.Categories
+        var category = await _context.Category
             .Select(x => new CategoryDTO
             {
                 id = x.id,

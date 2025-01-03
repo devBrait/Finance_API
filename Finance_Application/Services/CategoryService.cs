@@ -48,7 +48,7 @@ public class CategoryService
             throw new Exception(string.Join(" ", result.Errors.Select(e => e.ErrorMessage)));
         }
 
-        var newCategory = new Categories
+        var newCategory = new Category
         {
             name = category.name,
             type = category.type,

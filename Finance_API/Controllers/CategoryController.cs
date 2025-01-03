@@ -1,6 +1,5 @@
 ﻿using Finance_Application.Services;
 using Finance_Core.DTOs;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Finance_API.Controllers;

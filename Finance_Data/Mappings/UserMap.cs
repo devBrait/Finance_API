@@ -4,12 +4,12 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Finance_Data.Mappings;
 
-public class UsersMap : IEntityTypeConfiguration<Users>
+public class UserMap : IEntityTypeConfiguration<User>
 {
-    public void Configure(EntityTypeBuilder<Users> builder)
+    public void Configure(EntityTypeBuilder<User> builder)
     {
 
-        builder.ToTable("Users");
+        builder.ToTable("User");
         builder.HasKey(x => x.id);
         builder.Property(x => x.id)
             .ValueGeneratedOnAdd();

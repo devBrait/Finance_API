@@ -4,11 +4,11 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Finance_Data.Mappings;
 
-public class BudgetsMap : IEntityTypeConfiguration<Budgets>
+public class BudgetMap : IEntityTypeConfiguration<Budget>
 {
-    public void Configure(EntityTypeBuilder<Budgets> builder)
+    public void Configure(EntityTypeBuilder<Budget> builder)
     {
-        builder.ToTable("Budgets");
+        builder.ToTable("Budget");
         builder.HasKey(x => x.id);
         builder.Property(x => x.id)
             .ValueGeneratedOnAdd();

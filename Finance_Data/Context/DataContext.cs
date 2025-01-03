@@ -6,23 +6,23 @@ namespace Finance_Data.Context;
 
 public class DataContext(DbContextOptions<DataContext> options) : DbContext(options)
 {
-    public DbSet<Users> Users { get; set; }
+    public DbSet<User> User { get; set; }
 
-    public DbSet<Categories> Categories { get; set; }
+    public DbSet<Category> Category { get; set; }
 
-    public DbSet<Transactions> Transactions { get; set; }
+    public DbSet<Transaction> Transaction { get; set; }
 
-    public DbSet<Budgets> Budgets { get; set; }
+    public DbSet<Budget> Budget { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.ApplyConfiguration(new UsersMap());
+        modelBuilder.ApplyConfiguration(new UserMap());
 
-        modelBuilder.ApplyConfiguration(new CategoriesMap());
+        modelBuilder.ApplyConfiguration(new CategoryMap());
 
-        modelBuilder.ApplyConfiguration(new TransactionsMap());
+        modelBuilder.ApplyConfiguration(new TransactionMap());
 
-        modelBuilder.ApplyConfiguration(new BudgetsMap());
+        modelBuilder.ApplyConfiguration(new BudgetMap());
     }
 }
 

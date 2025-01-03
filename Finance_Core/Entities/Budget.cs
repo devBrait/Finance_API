@@ -1,6 +1,6 @@
 ﻿namespace Finance_Core.Entities;
 
-public class Budgets
+public class Budget
 {
     public int id { get; set; }
     public int user_id { get; set; }

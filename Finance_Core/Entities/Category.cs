@@ -2,7 +2,7 @@
 
 namespace Finance_Core.Entities;
 
-public class Categories
+public class Category
 {
     public int id { get; set; }
     public string name { get; set; }

@@ -1,6 +1,6 @@
 ﻿namespace Finance_Core.Entities;
 
-public class Transactions
+public class Transaction
 {
     public int id { get; set; }
     public int user_id { get; set; }

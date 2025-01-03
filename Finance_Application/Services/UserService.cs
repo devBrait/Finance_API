@@ -35,7 +35,7 @@ public class UserService
 
         var hash = _securityService.HashPassword(user.password);
 
-        var newUser = new Users
+        var newUser = new User
         {
             name = user.name,
             email = user.email,
