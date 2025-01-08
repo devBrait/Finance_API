@@ -29,9 +29,9 @@ public class CategoryController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> CreateAsync([FromBody] CategoryDTO categoryDTO)
+    public async Task<IActionResult> AddAsync([FromBody] CategoryDTO categoryDTO)
     {
-        var category = await _categoryService.CreateAsync(categoryDTO);
+        var category = await _categoryService.AddAsync(categoryDTO);
         return StatusCode(201, category);
     }
 }

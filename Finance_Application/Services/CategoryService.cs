@@ -39,7 +39,7 @@ public class CategoryService
         return category;
     }
 
-    public async Task<CategoryDTO> CreateAsync(CategoryDTO category)
+    public async Task<CategoryDTO> AddAsync(CategoryDTO category)
     {
         var result = await _categoryDTOValidator.ValidateAsync(category);
 

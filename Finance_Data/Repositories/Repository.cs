@@ -29,6 +29,12 @@ public class Repository<T> : IRepository<T> where T : class
     {
         _context.Set<T>().RemoveRange(entities);
     }
+    public async Task<T> GetByIdAsync(int id)
+    {
+        var transaction = await _context.Set<T>().FindAsync(id);
+
+        return transaction ?? throw new Exception("Not found transaction with this id.");
+    }
     public async Task<bool> SaveAsync() => (await _context.SaveChangesAsync()) > 0;
 
 }

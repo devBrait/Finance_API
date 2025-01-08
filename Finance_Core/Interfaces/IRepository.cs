@@ -6,5 +6,6 @@ public interface IRepository<T> where T : class
     void Update(T entity);
     void Delete(T entity);
     void DeleteRange(IEnumerable<T> entities);
+    Task<T> GetByIdAsync(int id);
     Task<bool> SaveAsync();
 }

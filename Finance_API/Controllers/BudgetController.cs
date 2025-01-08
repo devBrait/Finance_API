@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Finance_Application.Services;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Finance_API.Controllers;
 
@@ -6,5 +7,10 @@ namespace Finance_API.Controllers;
 [ApiController]
 public class BudgetController : ControllerBase
 {
+    private readonly BudgetService _budgetService;
 
+    public BudgetController(BudgetService budgetService)
+    {
+        _budgetService = budgetService;
+    }
 }

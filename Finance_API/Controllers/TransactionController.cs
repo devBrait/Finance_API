@@ -1,4 +1,5 @@
 ﻿using Finance_Application.Services;
+using Finance_Core.DTOs;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -27,5 +28,19 @@ public class TransactionController : ControllerBase
     {
         var transacton = await _transactionService.GetByIdAsync(id);
         return Ok(transacton);
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> AddAsync([FromBody] TransactionDTO transactionDTO)
+    {
+        var transaction = await _transactionService.AddAsync(transactionDTO);
+        return StatusCode(201, transaction);
+    }
+
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> DeleteAsync(int id)
+    {
+        await _transactionService.DeleteAsync(id);
+        return Ok(true);
     }
 }

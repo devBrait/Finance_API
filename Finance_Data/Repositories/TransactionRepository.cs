@@ -24,28 +24,4 @@ public class TransactionRepository(DataContext context) : Repository<Transaction
             })
             .ToListAsync();
     }
-
-    public async Task<TransactionDTO> GetByIdAsync(int id)
-    {
-        var transaction = await _context.Transaction
-            .Select(x => new TransactionDTO
-            {
-                id = x.id,
-                user_id = x.id,
-                amount = x.amount,
-                category_id = x.category_id,
-                created_at = x.created_at,
-                date = x.date,
-                description = x.description,
-                update_at = x.update_at
-            }).Where(x => x.id == id)
-            .FirstOrDefaultAsync();
-
-        if (transaction is null)
-        {
-            return null;
-        }
-
-        return transaction;
-    }
 }
