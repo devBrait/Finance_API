@@ -26,6 +26,8 @@ builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 builder.Services.AddValidatorsFromAssemblyContaining<UserDTOValidator>();
 builder.Services.AddValidatorsFromAssemblyContaining<CategoryDTOValidator>();
 builder.Services.AddValidatorsFromAssemblyContaining<TransactionDTOValidator>();
+builder.Services.AddValidatorsFromAssemblyContaining<AddBudgetValidator>();
+builder.Services.AddValidatorsFromAssemblyContaining<UpdateBudgetValidator>();
 
 builder.Services.AddControllers()
     .AddJsonOptions(x => x.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter()));

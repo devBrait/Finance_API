@@ -8,13 +8,14 @@ public class TransactionDTOValidator : AbstractValidator<TransactionDTO>
     {
         RuleFor(x => x.user_id)
             .NotEmpty().WithMessage("The user id is required.")
-            .IsInEnum().WithMessage("The user id must be a valid number.");
+            .GreaterThan(0).WithMessage("The user id must be a valid number.");
 
         RuleFor(x => x.category_id)
             .NotEmpty().WithMessage("The category id is required.")
-            .IsInEnum().WithMessage("The category id must be a valid number.");
+            .GreaterThan(0).WithMessage("The category id must be a valid number.");
 
         RuleFor(x => x.amount)
-            .NotEmpty().WithMessage("The amount is required.");
+            .NotEmpty().WithMessage("The amount is required.")
+            .GreaterThan(0).WithMessage("The amount must be a valid number.");
     }
 }
