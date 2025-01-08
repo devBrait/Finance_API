@@ -15,7 +15,9 @@ builder.Services.AddDbContext<DataContext>(x
 
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+builder.Services.AddScoped<ITransactionRepository, TransactionRepository>();
 builder.Services.AddScoped<UserService>();
+builder.Services.AddScoped<TransactionService>();
 builder.Services.AddScoped<CategoryService>();
 builder.Services.AddScoped<SecurityService>();
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
